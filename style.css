@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+
+:root {
+    --text-color: #fff;
+    --bg-url: url("assets/bg-mobile.jpg");
+    --link-bg: rgba(255,255,255,0.1);
+    --link-border: rgba(255,255,255,0.5);
+    --social-bg: rgba(255,255,255,0.1);
+    --hover-bg: rgba(255,255,255,0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+}
+
+body {
+    background-image: var(--bg-url);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    transition: background 0.5s, color 0.5s;
+}
+
+#container {
+    padding: 20px;
+    width: 360px;
+    margin: auto;
+}
+
+/* Profile */
+#profile {
+    text-align: center;
+    padding: 20px;
+    border-radius: 16px;
+
+    transition: background 0.5s;
+}
+
+#profile > img {
+    width: 112px;
+    height: 112px;  
+    margin: auto;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+
+#profile > p {
+    font-family: "Story Script", sans-serif;
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 16px;
+    font-weight: 500;
+    transition: color 0.5s;
+}
+
+/* Toggle */
+.trilho {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  margin: 22px auto 0;
+  backdrop-filter: blur(10px);
+  background-color: #4d4d4d;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
+}
+
+.trilho.dark {
+  background-color: #c3c3c3;
+}
+
+.ball {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/assets/moon.png");
+  background-color: #2c2c2c;
+  background-size: 70% auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(.9);
+  transition: left 0.5s, background-color 0.5s, transform 0.3s;
+}
+
+.trilho.dark > .ball {
+    left: 60px;
+    background-color: #f0f0f0;
+    background-image: url('assets/Sun.svg');
+    transform: scale(1);
+}
+
+/* Links */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul > li > a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    width: 100%;
+    max-width: 540px;
+    padding: 16px 24px;
+    background: var(--link-bg);
+    border-radius: 12px;
+    border: 1px solid var(--link-border);
+    font-weight: 500;
+    color: var(--text-color);
+    transition: background 0.4s, color 0.4s, transform 0.3s, border 0.4s;
+}
+
+ul > li > a:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-2px);
+    border: 1px solid var(--text-color);
+}
+
+/* Social Links */
+#social-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 24px 0;
+}
+
+#social-links > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+    background-color: var(--social-bg); /* dark mode fundo */
+    color: var(--text-color);
+    border: 1px solid var(--link-border);
+    transition: background 0.4s, color 0.4s, transform 0.3s, border 0.4s;
+}
+
+#social-links > a:hover {
+    background-color: var(--hover-bg);
+    transform: scale(1.1);
+}
+
+/* Dark Mode / Light background for socials */
+body.dark {
+    --text-color: #000;
+    --link-bg: rgba(255,255,255,0.1);
+    --link-border: #000;
+    --social-bg: rgba(200,200,200,0.2); /* fundo visível no modo light */
+    --hover-bg: rgba(0,0,0,0.1);
+    background-image: url('assets/bg-mobile-light.jpg');
+}
+
+body.dark #profile {
+    background-color: rgba(255,255,255,0.1);
+}
+
+body.dark #profile .texto {
+    color: #000;
+}
+
+body.dark ul > li > a {
+    background: var(--link-bg);
+    border: 1px solid var(--link-border);
+    color: #000;
+}
+
+body.dark #social-links > a {
+    background-color: var(--social-bg); /* fundo claro visível no modo light */
+    color: #000;
+    border: 1px solid #000;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+    transition: background 0.5s;
+}
